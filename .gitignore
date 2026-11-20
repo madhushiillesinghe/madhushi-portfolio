@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Optional CV built by `npm run cv` (the site uses public/cv.pdf)
+cv/cv-generated.pdf

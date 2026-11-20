@@ -36,24 +36,43 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <h1 className="font-display text-[clamp(3.6rem,13vw,11rem)] leading-[0.85] tracking-[-0.02em]">
-          <motion.span
-            className="block"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.05 }}
-          >
-            {first}
-          </motion.span>
-          <motion.span
-            className="block pb-[0.12em] italic text-gradient"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.15 }}
-          >
-            {rest.join(' ')}
-          </motion.span>
-        </h1>
+        <div className="flex flex-col-reverse gap-8 md:flex-row md:items-center md:justify-between md:gap-10">
+          <h1 className="font-display text-[clamp(3.6rem,12vw,10rem)] leading-[0.85] tracking-[-0.02em]">
+            <motion.span
+              className="block"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease, delay: 0.05 }}
+            >
+              {first}
+            </motion.span>
+            <motion.span
+              className="block pb-[0.12em] italic text-gradient"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease, delay: 0.15 }}
+            >
+              {rest.join(' ')}
+            </motion.span>
+          </h1>
+
+          {profile.photo && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.25 }}
+              className="relative w-44 shrink-0 sm:w-52 md:w-72 lg:w-80"
+            >
+              {/* Soft glow behind the cut-out photo */}
+              <div className="absolute inset-x-[10%] top-[8%] bottom-[20%] rounded-full bg-gradient-to-br from-amber/35 to-coral/25 blur-3xl" />
+              <img
+                src={profile.photo}
+                alt={profile.name}
+                className="relative w-full [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
+              />
+            </motion.div>
+          )}
+        </div>
 
         <div className="mt-10 grid gap-10 md:mt-14 md:grid-cols-[1.2fr_1fr] md:items-end">
           <motion.div
