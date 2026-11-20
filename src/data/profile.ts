@@ -13,8 +13,10 @@ export const profile = {
   githubUser: 'madhushiillesinghe',
   github: 'https://github.com/madhushiillesinghe',
   linkedin: 'https://www.linkedin.com/in/madhushi-illesinghe-143805279/',
-  // CV PDF — built from cv/cv.html with `npm run cv`
+  // Your CV — replace public/cv.pdf with a new file to update it
   cv: '/cv.pdf',
+  // Profile photo shown in the hero (transparent PNG in public/)
+  photo: '/profile.png',
   openToWork: true,
 }
 
