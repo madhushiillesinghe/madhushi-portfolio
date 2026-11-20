@@ -1,0 +1,291 @@
+<!doctype html>
+<!--
+  CV source. Edit this file, then rebuild the PDF with:
+    npm run cv
+  Output: public/cv.pdf (linked from the "CV" button on the site)
+  Two A4 pages: each <div class="page"> is one printed page.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Madhushi Illesinghe — CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #1c1917;
+    --body: #3f3a36;
+    --mute: #78716c;
+    --accent: #c2410c;
+    --side: #f7f3ee;
+    --line: #e7e0d8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--body);
+    font-size: 9.3pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    display: grid;
+    grid-template-columns: 66mm 1fr;
+    overflow: hidden;
+    break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+
+  /* ── Sidebar ───────────────────────────── */
+  aside {
+    background: var(--side);
+    padding: 13mm 8mm 12mm 9mm;
+    border-right: 1px solid var(--line);
+  }
+  .photo {
+    display: block;
+    width: 38mm;
+    height: 38mm;
+    margin: 0 auto 6mm;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1.5px var(--accent);
+  }
+  aside h2 {
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 5.5mm 0 2.4mm;
+    font-weight: 700;
+  }
+  aside h2:first-of-type { margin-top: 0; }
+  .contact { list-style: none; }
+  .contact li { margin-bottom: 1.7mm; word-break: break-word; }
+  .contact .k { display: block; font-size: 7.4pt; color: var(--mute); text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact a { color: var(--ink); text-decoration: none; }
+  .contact .email { font-size: 7.9pt; white-space: nowrap; letter-spacing: -0.01em; }
+  .edu { margin-bottom: 3mm; font-size: 8.6pt; }
+  .edu .when { font-size: 7.6pt; color: var(--accent); font-weight: 700; letter-spacing: 0.04em; }
+  .edu .what { font-weight: 700; color: var(--ink); font-size: 8.8pt; line-height: 1.3; }
+  .edu .where { color: var(--body); }
+  .skill-group { margin-bottom: 2.6mm; }
+  .skill-group .k { font-weight: 600; color: var(--ink); font-size: 8.6pt; }
+  .skill-group .v { font-size: 8.6pt; }
+  .dots { list-style: none; }
+  .dots li { padding-left: 3.2mm; position: relative; margin-bottom: 1mm; font-size: 8.6pt; }
+  .dots li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: var(--accent); }
+
+  /* ── Main ──────────────────────────────── */
+  main { padding: 12mm 13mm 10mm 11mm; }
+  header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27pt;
+    line-height: 1.05;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  header h1 em { color: var(--accent); }
+  header .role { margin-top: 2mm; font-size: 10.5pt; font-weight: 600; color: var(--accent); }
+  header .summary { margin-top: 3mm; font-size: 9.5pt; }
+
+  main h2 {
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 5.2mm 0 2.4mm;
+    padding-bottom: 1.4mm;
+    border-bottom: 1px solid var(--line);
+  }
+  main h2:first-child { margin-top: 0; }
+  .entry { margin-bottom: 3.2mm; break-inside: avoid; }
+  .entry-head { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+  .entry-title { font-weight: 700; color: var(--ink); font-size: 10pt; }
+  .entry-meta { color: var(--mute); font-size: 8.4pt; white-space: nowrap; }
+  .entry-sub { color: var(--mute); font-size: 8.6pt; margin-top: 0.3mm; }
+  .entry ul { margin: 1.2mm 0 0 4mm; }
+  .entry li { margin-bottom: 0.6mm; }
+  .entry p { margin-top: 0.8mm; }
+  .stack { margin-top: 1mm; font-size: 8.2pt; color: var(--mute); }
+  .stack b { color: var(--body); font-weight: 600; }
+
+  .refs { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .ref .name { font-weight: 700; color: var(--ink); font-size: 10pt; }
+  .ref .title { margin-top: 0.4mm; }
+  .ref .contact-line { margin-top: 1mm; font-size: 8.6pt; }
+  .ref .contact-line span { color: var(--mute); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page">
+  <aside>
+    <img class="photo" src="photo.jpg" alt="Madhushi Illesinghe" />
+
+    <h2>Contact</h2>
+    <ul class="contact">
+      <li><span class="k">Phone</span>+94 70 140 6854</li>
+      <li><span class="k">Email</span><a class="email" href="mailto:madhushiillesinghe225@gmail.com">madhushiillesinghe225@gmail.com</a></li>
+      <li><span class="k">Location</span>Galle, Sri Lanka</li>
+      <li><span class="k">GitHub</span><a href="https://github.com/madhushiillesinghe">github.com/madhushiillesinghe</a></li>
+      <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/madhushi-illesinghe-143805279/">linkedin.com/in/madhushi-illesinghe</a></li>
+    </ul>
+
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="when">2026 – PRESENT</div>
+      <div class="what">BSc (Hons) Computer Science <span style="font-weight:400;color:var(--mute)">· Ongoing</span></div>
+      <div class="where">London Metropolitan University, United Kingdom</div>
+    </div>
+    <div class="edu">
+      <div class="when">2023 – 2025</div>
+      <div class="what">Graduate Diploma in Software Engineering</div>
+      <div class="where">Institute of Software Engineering (IJSE), Panadura</div>
+    </div>
+    <div class="edu">
+      <div class="when">MAR 2022 – JUL 2022</div>
+      <div class="what">Diploma in English</div>
+      <div class="where">Britishway English Academy, Galle</div>
+    </div>
+
+    <h2>Languages</h2>
+    <ul class="dots">
+      <li>English — Proficient</li>
+      <li>Sinhala — Fluent</li>
+    </ul>
+
+    <h2>Currently exploring</h2>
+    <ul class="dots">
+      <li>Advanced Spring Boot architecture</li>
+      <li>AI &amp; machine learning</li>
+      <li>Cloud deployment &amp; DevOps</li>
+      <li>Cross-platform mobile</li>
+      <li>Design patterns</li>
+    </ul>
+  </aside>
+
+  <main>
+    <header>
+      <h1>Madhushi <em>Illesinghe</em></h1>
+      <div class="role">Computer Science Undergraduate · Full Stack Developer</div>
+      <p class="summary">
+        Computer Science undergraduate and Software Engineering graduate-diploma holder specialising in enterprise
+        application development and software architecture. I build scalable, well-architected software — from Spring
+        Boot back ends to React front ends — and enjoy designing clean APIs, layered architectures and data models that
+        stay easy to change. Passionate about modern technologies, continuous learning and collaborating in a team.
+      </p>
+    </header>
+
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head"><span class="entry-title">Software Engineer — PRAM IT Solutions</span><span class="entry-meta">6 months</span></div>
+      <ul>
+        <li>Handled both back-end and front-end development for multiple client projects.</li>
+        <li>Developed and customised WordPress websites based on client requirements.</li>
+      </ul>
+    </div>
+
+    <h2>Final Research Project</h2>
+    <div class="entry">
+      <div class="entry-head"><span class="entry-title">SoilAI — AI Soil Analysis &amp; Crop Recommendation</span><span class="entry-meta">2026</span></div>
+      <div class="entry-sub">Research, ML model training &amp; full-stack development · github.com/madhushiillesinghe/Soil-AI</div>
+      <p>A farmer photographs their soil and picks a district; SoilAI returns the soil type, estimated nutrients, the five best-suited crops and a fertilizer plan using Sri Lankan application rates.</p>
+      <ul>
+        <li>Four ML models: soil type (MobileNetV2), soil properties, crop ranking and fertilizer plan</li>
+        <li>Soil-photo check with ONNX Runtime rejects blurry, dark or non-soil images</li>
+        <li>5-day weather with field-work advice, soil history charts and favourites</li>
+        <li>English and Sinhala interface, light / dark mode, emailed password-reset codes</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> Python, TensorFlow, scikit-learn, FastAPI, ONNX, Next.js, React, TypeScript, Node.js, Express, MySQL, Docker</div>
+    </div>
+
+    <h2>Projects</h2>
+    <div class="entry">
+      <div class="entry-title">SRMSS — Smart Route Management &amp; Scheduling System</div>
+      <p>React + TypeScript admin dashboard and driver portal with live bus tracking on Leaflet maps; Node.js / Express API for routes, schedules, drivers, ticket booking, fuel logs and maintenance.</p>
+      <div class="stack"><b>Stack:</b> React, TypeScript, Leaflet, Node.js, Express, MySQL, Sequelize, JWT</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Darko Innovex — Patient Medical Data Management</div>
+      <p>Collaborative project: a patient medical data system using NFC cards that centralises medical records and enables easy access to information, appointments and telemedicine.</p>
+      <div class="stack"><b>Stack:</b> React, Spring Boot, MySQL</div>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page">
+  <aside>
+    <h2>Skills</h2>
+    <div class="skill-group"><div class="k">Languages</div><div class="v">Java, C#, Python, JavaScript, TypeScript, SQL</div></div>
+    <div class="skill-group"><div class="k">Backend</div><div class="v">Spring Boot, Spring Framework, Jakarta EE, Node.js, Express.js, ASP.NET Core</div></div>
+    <div class="skill-group"><div class="k">Frontend</div><div class="v">React, Next.js, React Native, Tailwind CSS, Bootstrap, HTML5, CSS3</div></div>
+    <div class="skill-group"><div class="k">Databases</div><div class="v">MySQL, MongoDB, Firebase</div></div>
+    <div class="skill-group"><div class="k">AI &amp; Data</div><div class="v">Machine learning, TensorFlow, scikit-learn, FastAPI, Pandas, OpenAI, web scraping</div></div>
+    <div class="skill-group"><div class="k">Practices</div><div class="v">API development, deployment, version control (Git / GitHub), project management (Jira)</div></div>
+    <div class="skill-group"><div class="k">Tools</div><div class="v">IntelliJ IDEA, Visual Studio, VS Code, Android Studio, Figma</div></div>
+  </aside>
+
+  <main>
+    <h2>Projects (continued)</h2>
+    <div class="entry">
+      <div class="entry-title">PhonePOS</div>
+      <p>Point of sale and management system for mobile phone shops: sales, repairs, installments, suppliers and reports.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Task Flow — Task Management</div>
+      <p>Task management system with priority filtering (Low, High) and status tracking, showing the tasks relevant to the logged-in user; JWT-secured Express API.</p>
+      <div class="stack"><b>Stack:</b> React, Next.js, Tailwind CSS, TypeScript, Node.js, Express, JWT, MongoDB, Mongoose, Axios</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">AI Travel Plan</div>
+      <p>Mobile app that lets users set travel budgets, select locations via API and generate AI-driven trip plans.</p>
+      <div class="stack"><b>Stack:</b> React Native, TypeScript, Expo, Firebase Authentication, Firestore, OpenCage API, AI API integration</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Field Guardian — Field Data Management System</div>
+      <p>Digital field management system that helps a company streamline operations, manage crops and employees, and generate monitoring logs.</p>
+      <div class="stack"><b>Stack:</b> Spring Boot, MySQL, HTML, CSS, JavaScript</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">SE10 Social Network — Messaging Platform</div>
+      <p>Collaborative project: a messaging platform for students to share achievements and knowledge within an institute.</p>
+      <div class="stack"><b>Stack:</b> Spring Boot, MySQL, HTML, CSS, JavaScript</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">SmartMed Pharmacy</div>
+      <p>C# Windows Forms admin panel for a pharmacy: medicines, customers, orders, and PDF / Excel reports.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Chat Application</div>
+      <p>Multi-user chat app using Java socket programming — text, emoji and image messages, including Sinhala.</p>
+    </div>
+
+    <h2>References</h2>
+    <div class="refs">
+      <div class="ref">
+        <div class="name">Dr Amal Illesinghe</div>
+        <div class="title">Independent Director — Bank of Ceylon<br />Treasurer — Computer Society of Sri Lanka (CSSL)</div>
+        <div class="contact-line"><span>Phone:</span> +94 77 399 8035</div>
+        <div class="contact-line"><span>Email:</span> akillesinghe@boc.lk</div>
+      </div>
+      <div class="ref">
+        <div class="name">Udara San</div>
+        <div class="title">Senior Lecturer — Institute of Software Engineering (IJSE)</div>
+        <div class="contact-line"><span>Phone:</span> +94 78 840 9788</div>
+        <div class="contact-line"><span>LinkedIn:</span> Udara San</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

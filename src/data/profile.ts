@@ -9,13 +9,12 @@ export const profile = {
   role: 'Full Stack Developer & Software Engineer',
   location: 'Galle, Sri Lanka',
   tagline: 'I build scalable, well-architected software — from Spring Boot back ends to React front ends.',
-  // TODO: replace with your real email address
-  email: 'your.email@example.com',
+  email: 'madhushiillesinghe225@gmail.com',
   githubUser: 'madhushiillesinghe',
   github: 'https://github.com/madhushiillesinghe',
   linkedin: 'https://www.linkedin.com/in/madhushi-illesinghe-143805279/',
-  // Optional: put your CV in /public/cv.pdf and set this to '/cv.pdf'
-  cv: '',
+  // CV PDF — built from cv/cv.html with `npm run cv`
+  cv: '/cv.pdf',
   openToWork: true,
 }
 
@@ -26,8 +25,8 @@ export const about = {
     "Right now I'm going deeper into advanced Spring Boot architecture, cloud deployment and DevOps, and applying AI and machine learning to real products.",
   ],
   facts: [
-    { label: 'Education', value: 'BSc (Hons) Computer Science' },
-    { label: 'Diploma', value: 'Software Engineering — IJSE' },
+    { label: 'Education', value: 'BSc (Hons) Computer Science — London Metropolitan University (ongoing)' },
+    { label: 'Diploma', value: 'Graduate Diploma in Software Engineering — IJSE (2023 – 2025)' },
     { label: 'Focus', value: 'Back end · Architecture · Cloud · AI' },
     { label: 'Based in', value: 'Galle, Sri Lanka' },
   ],
